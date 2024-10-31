@@ -10,7 +10,7 @@ export default function Component() {
     <div className="flex flex-col min-h-screen bg-[#F5F5F0] text-[#3E2723]">
       <header className="px-4 lg:px-6 h-14 flex items-center border-b border-[#D7CCC8]">
         <Link className="flex items-center justify-center" href="#">
-          <TreeIcon className="h-6 w-6 text-[#795548]" />
+          {/* <TreeIcon className="h-6 w-6 text-[#795548]" /> */}
           <span className="ml-2 text-xl font-bold text-[#3E2723]">
             Custom Furniture Co.
           </span>
@@ -91,9 +91,9 @@ export default function Component() {
             </h2>
             <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3">
               <div className="flex flex-col items-center space-y-2 border-[#D7CCC8] p-4 rounded-lg">
-                <div className="p-2 bg-[#EFEBE9] text-[#795548] rounded-full">
+                {/* <div className="p-2 bg-[#EFEBE9] text-[#795548] rounded-full">
                   <PaintbrushIcon className="h-6 w-6" />
-                </div>
+                </div> */}
                 <h3 className="text-xl font-bold text-[#3E2723]">
                   Custom Design
                 </h3>
@@ -102,9 +102,9 @@ export default function Component() {
                 </p>
               </div>
               <div className="flex flex-col items-center space-y-2 border-[#D7CCC8] p-4 rounded-lg">
-                <div className="p-2 bg-[#EFEBE9] text-[#795548] rounded-full">
+                {/* <div className="p-2 bg-[#EFEBE9] text-[#795548] rounded-full">
                   <GemIcon className="h-6 w-6" />
-                </div>
+                </div> */}
                 <h3 className="text-xl font-bold text-[#3E2723]">
                   Premium Quality
                 </h3>
@@ -113,9 +113,9 @@ export default function Component() {
                 </p>
               </div>
               <div className="flex flex-col items-center space-y-2 border-[#D7CCC8] p-4 rounded-lg">
-                <div className="p-2 bg-[#EFEBE9] text-[#795548] rounded-full">
+                {/* <div className="p-2 bg-[#EFEBE9] text-[#795548] rounded-full">
                   <ClockIcon className="h-6 w-6" />
-                </div>
+                </div> */}
                 <h3 className="text-xl font-bold text-[#3E2723]">
                   Timely Delivery
                 </h3>
@@ -191,24 +191,25 @@ export default function Component() {
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               <div className="flex flex-col gap-2 p-6 bg-[#EFEBE9] rounded-lg shadow">
                 <p className="text-sm text-[#5D4037]">
-                  "The custom bench they created for our entryway is absolutely
-                  stunning. It's not just a piece of furniture, it's a work of
-                  art."
+                  &quot;The custom bench they created for our entryway is
+                  absolutely stunning. Its not just a piece of furniture, its a
+                  work of art.&quot;
                 </p>
                 <p className="font-semibold text-[#3E2723]">- Sarah J.</p>
               </div>
               <div className="flex flex-col gap-2 p-6 bg-[#EFEBE9] rounded-lg shadow">
                 <p className="text-sm text-[#5D4037]">
-                  "Their attention to detail is impeccable. The dining table
-                  they made fits perfectly in our space and matches our style
-                  exactly."
+                  &quot;The custom bench they created for our entryway is
+                  absolutely stunning. Its not just a piece of furniture, its a
+                  work of art.&quot;
                 </p>
                 <p className="font-semibold text-[#3E2723]">- Michael T.</p>
               </div>
               <div className="flex flex-col gap-2 p-6 bg-[#EFEBE9] rounded-lg shadow">
                 <p className="text-sm text-[#5D4037]">
-                  "From design to delivery, the whole process was smooth and
-                  professional. I highly recommend their services."
+                  &quot;The custom bench they created for our entryway is
+                  absolutely stunning. Its not just a piece of furniture, its a
+                  work of art.&quot;
                 </p>
                 <p className="font-semibold text-[#3E2723]">- Emily R.</p>
               </div>

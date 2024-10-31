@@ -286,7 +286,7 @@ export default function Component() {
     </div>
   );
 }
-
+/* 
 function ChevronRightIcon(props) {
   return (
     <svg
@@ -454,3 +454,4 @@ function TreeIcon(props) {
     </svg>
   );
 }
+ */

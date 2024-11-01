@@ -230,7 +230,7 @@ export default function Component() {
                 </h1>
                 <p className="text-sm text-gray-300 mt-4 leading-relaxed">
                   Have some big idea or brand to develop and need help? Then
-                  reach out we'd love to hear about your project and provide
+                  reach out wed love to hear about your project and provide
                   help.
                 </p>
                 <ul className="mt-12 space-y-8">

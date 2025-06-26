@@ -9,6 +9,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **`.claude/workflow.md`**: Development workflow, quality standards, and deploy strategy
 - **`.claude/memory.md`**: Critical decisions, architectural choices, and what to preserve in memory
 - **`.claude/startup.md`**: Session startup protocol - ALWAYS start with `npm run dev &`
+- **`.claude/efficiency.md`**: Token optimization strategies maintaining maximum quality
 
 Key principles: Maximum professionalism, extreme efficiency, avant-garde creativity, constant application monitoring.
 

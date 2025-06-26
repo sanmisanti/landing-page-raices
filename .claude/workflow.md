@@ -7,6 +7,7 @@
 - **Eficiencia Extrema**: Soluciones optimizadas y probadas en todo momento
 - **Creatividad Vanguardista**: Diseños originales que marquen tendencia
 - **Monitoreo Constante**: Estado de aplicación siempre bajo control
+- **Token Efficiency**: Minimizar input/output tokens manteniendo calidad máxima
 
 ### Estándares de Calidad
 - **Código**: TypeScript estricto, componentes reutilizables, arquitectura escalable

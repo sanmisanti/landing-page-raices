@@ -8,6 +8,7 @@
 - **shadcn/ui + Tailwind**: Sistema de diseño establecido, no cambiar
 - **TypeScript Strict**: Configuración establecida, mantener estricta
 - **"Modern Warmth" Aesthetic**: Principio de diseño no negociable
+- **Token Efficiency**: Maximizar valor por token sin comprometer calidad
 
 ### Decisiones de Negocio CRÍTICAS
 - **Target Audience**: Clientes high-end de diseño interior

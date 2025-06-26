@@ -34,7 +34,8 @@
 - **Performance Check**: Lighthouse audit para cambios críticos
 
 ### 4. Deploy Strategy
-- **Staging**: Push cuando funcionalidad completa y testada
+- **Commits**: Crear commits en estados estables y convenientes
+- **Push Manual**: Usuario ejecuta push cuando decide desplegar
 - **Production**: Solo versiones estables que agreguen valor real
 - **Rollback Ready**: Siempre mantener última versión estable funcional
 
@@ -73,19 +74,18 @@
 - **Atomic Commits**: Un concepto/feature por commit
 - **Clean History**: Rebase cuando sea necesario para claridad
 
-### Deploy Triggers
+### Commit Triggers
 - **Features Completas**: Funcionalidad terminada y testada
 - **Bug Fixes Críticos**: Problemas que afectan experiencia usuario
 - **Performance Improvements**: Optimizaciones medibles
-- **Content Updates**: Cambios de contenido aprobados
+- **Milestone Reached**: Estados convenientes para guardar progreso
 
-### Production Readiness Checklist
+### Commit Readiness Checklist
 - [ ] npm run build exitoso
 - [ ] npm run lint sin errores
 - [ ] Funcionalidad testada manualmente
 - [ ] Performance acceptable
-- [ ] Mobile responsive verificado
-- [ ] Cross-browser compatibility básica
+- [ ] Estado de aplicación estable
 
 ## Herramientas y Recursos
 

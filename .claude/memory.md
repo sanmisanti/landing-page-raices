@@ -19,7 +19,8 @@
 - **Path Aliases**: @/* configurado, usado consistentemente
 - **Font Stack**: Geist Sans establecida y optimizada
 - **Color System**: CSS variables definidas, respetar jerarquía
-- **Deploy Pipeline**: GitHub → Vercel automático, pushear solo versiones estables
+- **Deploy Pipeline**: GitHub → Vercel automático, push MANUAL por usuario
+- **Commit Strategy**: Claude hace commits, usuario hace push cuando listo
 
 ## Decisiones de Implementación Permanentes
 

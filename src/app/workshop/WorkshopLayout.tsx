@@ -110,8 +110,135 @@ export default function WorkshopLayout() {
 
   const currentStationData = WORKSHOP_STATIONS[currentStation];
 
+  // Custom scroll styling
+  useEffect(() => {
+    const style = document.createElement("style");
+    style.textContent = `
+      .workshop-scroll-container {
+        scroll-behavior: auto; /* Let us control the smoothness */
+      }
+      
+      .workshop-scroll-container::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
+      }
+      
+      /* Disable native scroll snapping for manual control */
+      .workshop-scroll-container {
+        scroll-snap-type: none;
+      }
+      
+      .workshop-station {
+        scroll-snap-align: none;
+      }
+    `;
+    document.head.appendChild(style);
+
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
+
+  // Function to scroll to specific station with slower animation
+  const scrollToStation = (stationIndex: number) => {
+    const targetElement = document.getElementById(`station-${stationIndex}`);
+    const mainContainer = document.querySelector(
+      ".workshop-scroll-container"
+    ) as HTMLElement;
+
+    if (targetElement && mainContainer) {
+      // Calculate target position
+      const targetPosition = targetElement.offsetTop;
+      const startPosition = mainContainer.scrollTop;
+      const distance = targetPosition - startPosition;
+      const duration = 1500; // 1.5 seconds for smoother transition
+      let startTime: number | null = null;
+
+      // Easing function for smooth animation
+      const easeInOutCubic = (t: number): number => {
+        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+      };
+
+      // Animation function
+      const animateScroll = (currentTime: number) => {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const progress = Math.min(timeElapsed / duration, 1);
+        const easedProgress = easeInOutCubic(progress);
+
+        mainContainer.scrollTop = startPosition + distance * easedProgress;
+
+        if (progress < 1) {
+          requestAnimationFrame(animateScroll);
+        }
+      };
+
+      requestAnimationFrame(animateScroll);
+      setCurrentStation(stationIndex);
+    }
+  };
+
+  // Debounced wheel event navigation
+  useEffect(() => {
+    const mainContainer = document.querySelector(
+      ".workshop-scroll-container"
+    ) as HTMLElement;
+    if (!mainContainer) return;
+
+    let isTransitioning = false;
+    let wheelTimeout: NodeJS.Timeout;
+    let accumulatedDelta = 0;
+
+    const handleWheel = (e: WheelEvent) => {
+      if (isTransitioning) return;
+      
+      e.preventDefault(); // Prevent default scroll
+      
+      // Accumulate wheel delta
+      accumulatedDelta += e.deltaY;
+      
+      // Clear previous timeout
+      clearTimeout(wheelTimeout);
+      
+      // Wait for wheel gesture to complete (100ms of no wheel events)
+      wheelTimeout = setTimeout(() => {
+        const scrollingDown = accumulatedDelta > 0;
+        let targetStation = currentStation;
+
+        if (scrollingDown && currentStation < WORKSHOP_STATIONS.length - 1) {
+          // Scroll down = next station
+          targetStation = currentStation + 1;
+        } else if (!scrollingDown && currentStation > 0) {
+          // Scroll up = previous station
+          targetStation = currentStation - 1;
+        }
+
+        // Execute transition if needed
+        if (targetStation !== currentStation) {
+          isTransitioning = true;
+          scrollToStation(targetStation);
+          
+          // Reset transition flag
+          setTimeout(() => {
+            isTransitioning = false;
+          }, 1600); // Match animation duration
+        }
+        
+        // Reset accumulated delta
+        accumulatedDelta = 0;
+      }, 100); // Wait 100ms after last wheel event
+    };
+
+    mainContainer.addEventListener("wheel", handleWheel, { passive: false });
+
+    return () => {
+      mainContainer.removeEventListener("wheel", handleWheel);
+      clearTimeout(wheelTimeout);
+    };
+  }, [currentStation]);
+
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-amber-50 to-stone-100">
+    <div className="relative h-screen bg-gradient-to-br from-amber-50 to-stone-100 overflow-hidden">
       {/* Dynamic Cursor */}
       <DynamicCursor tool={currentStationData.cursorTool} />
 
@@ -134,7 +261,7 @@ export default function WorkshopLayout() {
           {WORKSHOP_STATIONS.map((station, index) => (
             <button
               key={station.id}
-              onClick={() => setCurrentStation(index)}
+              onClick={() => scrollToStation(index)}
               className={`relative w-3 h-3 rounded-full transition-all duration-300 ${
                 index === currentStation
                   ? "bg-amber-400 scale-125"
@@ -181,33 +308,34 @@ export default function WorkshopLayout() {
       <div className="fixed bottom-6 right-6 z-50">
         <div className="flex flex-col gap-2 text-black/60 text-sm">
           <div className="flex items-center gap-2">
-            <div className="w-6 h-4 border border-black/30 rounded flex items-center justify-center text-xs">
-              ↑↓
+            <div className="w-8 h-4 border border-black/30 rounded flex items-center justify-center text-xs">
+              scroll
             </div>
-            <span>Scroll entre estaciones</span>
+            <span>Auto-centra estaciones</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-6 h-4 border border-black/30 rounded flex items-center justify-center text-xs">
               •
             </div>
-            <span>Click navegación</span>
+            <span>Click directo</span>
           </div>
         </div>
       </div>
 
-      {/* Main Workshop Content - Vertical Scroll */}
-      <main className="relative z-10">
+      {/* Main Workshop Content - Vertical Scroll with Snap */}
+      <main className="workshop-scroll-container relative z-10 h-screen overflow-y-scroll">
         {WORKSHOP_STATIONS.map((station, index) => {
           const StationComponent = station.component;
-          const isEntradaStation = station.id === 'entrada';
-          
+          const isEntradaStation = station.id === "entrada";
+
           return (
             <motion.section
               key={station.id}
-              className={`${
-                isEntradaStation 
-                  ? 'h-screen flex items-center justify-center' 
-                  : 'min-h-screen flex items-center justify-center py-8'
+              id={`station-${index}`}
+              className={`workshop-station ${
+                isEntradaStation
+                  ? "h-screen flex items-center justify-center"
+                  : "min-h-screen flex items-center justify-center py-1"
               }`}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -234,7 +362,7 @@ export default function WorkshopLayout() {
               }}
               animate={{
                 y: -10,
-                x: ((i * 80) + 100) % width,
+                x: (i * 80 + 100) % width,
               }}
               transition={{
                 duration: 15 + (i % 10),

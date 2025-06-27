@@ -1,34 +1,33 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import ProjectCard from '@/app/components/ui/project-card'
+import { motion } from "framer-motion";
 
 const PROYECTOS_DESTACADOS = [
   {
-    titulo: 'Mesa de Comedor Roble',
-    descripcion: 'Mesa familiar para 8 personas con acabado natural',
-    imagen: '/IMG_6362.heic',
-    categoria: 'Muebles'
+    titulo: "Mesa de Comedor Roble",
+    descripcion: "Mesa familiar para 8 personas con acabado natural",
+    imagen: "/IMG_6362.heic",
+    categoria: "Muebles",
   },
   {
-    titulo: 'Librero Modular',
-    descripcion: 'Sistema de estanterías adaptable en nogal',
-    imagen: '/IMG_6369.heic',
-    categoria: 'Almacenamiento'
+    titulo: "Librero Modular",
+    descripcion: "Sistema de estanterías adaptable en nogal",
+    imagen: "/IMG_6369.heic",
+    categoria: "Almacenamiento",
   },
   {
-    titulo: 'Banco Artesanal',
-    descripcion: 'Pieza única tallada a mano en cerezo',
-    imagen: '/IMG_6386.heic',
-    categoria: 'Asientos'
+    titulo: "Banco Artesanal",
+    descripcion: "Pieza única tallada a mano en cerezo",
+    imagen: "/IMG_6386.heic",
+    categoria: "Asientos",
   },
   {
-    titulo: 'Lámpara Colgante',
-    descripcion: 'Iluminación con diseño geométrico',
-    imagen: '/IMG_6391.heic',
-    categoria: 'Iluminación'
-  }
-]
+    titulo: "Lámpara Colgante",
+    descripcion: "Iluminación con diseño geométrico",
+    imagen: "/IMG_6391.heic",
+    categoria: "Iluminación",
+  },
+];
 
 export default function GaleriaStation() {
   return (
@@ -48,13 +47,14 @@ export default function GaleriaStation() {
             <div className="w-2 h-2 bg-amber-400 rounded-full animate-pulse" />
             Estación 5: Galería de Piezas
           </div>
-          
+
           <h2 className="text-3xl lg:text-4xl font-serif text-white mb-3">
             Nuestras creaciones
           </h2>
-          
+
           <p className="text-base text-amber-100 max-w-2xl mx-auto">
-            Cada pieza cuenta una historia. Descubrí el portfolio de nuestros trabajos más destacados.
+            Cada pieza cuenta una historia. Descubrí el portfolio de nuestros
+            trabajos más destacados.
           </p>
         </motion.div>
 
@@ -77,14 +77,17 @@ export default function GaleriaStation() {
                   />
                 </div>
                 <div className="mt-4">
-                  <h3 className="text-lg font-bold text-white">{proyecto.titulo}</h3>
-                  <p className="mt-1 text-sm text-amber-200">{proyecto.categoria}</p>
+                  <h3 className="text-lg font-bold text-white">
+                    {proyecto.titulo}
+                  </h3>
+                  <p className="mt-1 text-sm text-amber-200">
+                    {proyecto.categoria}
+                  </p>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
-
       </div>
 
       {/* Museum lighting effect */}
@@ -94,21 +97,21 @@ export default function GaleriaStation() {
             key={i}
             className="absolute w-32 h-32 bg-amber-400/10 rounded-full blur-3xl"
             style={{
-              left: `${10 + (i * 20) % 80}%`,
-              top: `${10 + (i * 25) % 80}%`,
+              left: `${10 + ((i * 20) % 80)}%`,
+              top: `${10 + ((i * 25) % 80)}%`,
             }}
             animate={{
-              x: [0, (i % 2 === 0 ? 100 : -100), 0],
-              y: [0, (i % 2 === 0 ? -100 : 100), 0],
+              x: [0, i % 2 === 0 ? 100 : -100, 0],
+              y: [0, i % 2 === 0 ? -100 : 100, 0],
             }}
             transition={{
               duration: 15 + (i % 10),
               repeat: Infinity,
-              ease: "linear"
+              ease: "linear",
             }}
           />
         ))}
       </div>
     </section>
-  )
+  );
 }

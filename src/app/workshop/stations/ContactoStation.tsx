@@ -5,12 +5,12 @@ import { Button } from '@/app/components/ui/button'
 
 export default function ContactoStation() {
   return (
-    <section className="w-full h-full relative overflow-hidden bg-gradient-to-br from-stone-800 to-amber-900">
+    <section className="w-full min-h-screen relative overflow-hidden bg-gradient-to-br from-stone-800 to-amber-900">
       <div className="absolute inset-0">
         <div className="w-full h-full bg-gradient-to-t from-black/50 to-transparent" />
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 py-4 text-white h-full flex flex-col justify-center">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 py-8 text-white min-h-screen flex flex-col justify-center">
         <motion.div
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}

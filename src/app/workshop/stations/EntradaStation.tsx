@@ -251,18 +251,18 @@ export default function EntradaStation() {
           key={i}
           className="absolute w-2 h-2 bg-amber-800/20 rounded-full"
           initial={{ 
-            x: Math.random() * width,
+            x: (i * 150) % width,
             y: height + 10
           }}
           animate={{
             y: -50,
-            x: Math.random() * width
+            x: ((i * 150) + 50) % width
           }}
           transition={{
-            duration: Math.random() * 8 + 12,
+            duration: 12 + (i % 8),
             repeat: Infinity,
             ease: "linear",
-            delay: Math.random() * 3
+            delay: i * 0.375
           }}
         />
       ))}

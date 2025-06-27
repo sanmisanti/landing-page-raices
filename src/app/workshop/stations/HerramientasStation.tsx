@@ -16,7 +16,7 @@ export default function HerramientasStation() {
   const [selectedTool, setSelectedTool] = useState<number | null>(null)
 
   return (
-    <section className="w-full h-full relative overflow-hidden bg-gradient-to-br from-gray-100 to-stone-200">
+    <section className="w-full min-h-screen relative overflow-hidden bg-gradient-to-br from-gray-100 to-stone-200">
       <div className="absolute inset-0 opacity-10">
         <div 
           className="w-full h-full"
@@ -26,7 +26,7 @@ export default function HerramientasStation() {
         />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-4 py-4 h-full flex flex-col justify-center">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 py-8 flex flex-col justify-center min-h-screen">
         <motion.div
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}

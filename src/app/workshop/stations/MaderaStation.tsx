@@ -43,7 +43,7 @@ export default function MaderaStation() {
   const [isInspecting, setIsInspecting] = useState(false)
 
   return (
-    <section className="w-full h-full relative overflow-hidden bg-gradient-to-br from-amber-50 to-stone-100">
+    <section className="w-full min-h-screen relative overflow-hidden bg-gradient-to-br from-amber-50 to-stone-100">
       {/* Workshop lumber yard background */}
       <div className="absolute inset-0 opacity-10">
         <div 
@@ -54,7 +54,7 @@ export default function MaderaStation() {
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 py-4 h-full flex flex-col justify-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 py-8 min-h-screen flex flex-col justify-center">
         {/* Station Header */}
         <motion.div
           initial={{ opacity: 0, y: -30 }}

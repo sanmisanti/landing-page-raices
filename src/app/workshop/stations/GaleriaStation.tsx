@@ -32,12 +32,12 @@ const PROYECTOS_DESTACADOS = [
 
 export default function GaleriaStation() {
   return (
-    <section className="w-full h-full relative overflow-hidden bg-gradient-to-br from-stone-900 to-amber-900">
+    <section className="w-full min-h-screen relative overflow-hidden bg-gradient-to-br from-stone-900 to-amber-900">
       <div className="absolute inset-0">
         <div className="w-full h-full bg-gradient-to-br from-black/60 to-black/40" />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-4 py-4 h-full flex flex-col justify-center">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 py-8 flex flex-col justify-center min-h-screen">
         <motion.div
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -63,16 +63,24 @@ export default function GaleriaStation() {
             <motion.div
               key={proyecto.titulo}
               initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
+              viewport={{ once: true }}
               className="group"
             >
-              <ProjectCard
-                title={proyecto.titulo}
-                imageUrl={proyecto.imagen}
-                category={proyecto.categoria}
-                href="#"
-              />
+              <div className="group block">
+                <div className="overflow-hidden rounded-lg shadow-lg">
+                  <img
+                    src={proyecto.imagen}
+                    alt={`Proyecto: ${proyecto.titulo}`}
+                    className="w-full h-60 object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
+                  />
+                </div>
+                <div className="mt-4">
+                  <h3 className="text-lg font-bold text-white">{proyecto.titulo}</h3>
+                  <p className="mt-1 text-sm text-amber-200">{proyecto.categoria}</p>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -86,15 +94,15 @@ export default function GaleriaStation() {
             key={i}
             className="absolute w-32 h-32 bg-amber-400/10 rounded-full blur-3xl"
             style={{
-              left: `${Math.random() * 80 + 10}%`,
-              top: `${Math.random() * 80 + 10}%`,
+              left: `${10 + (i * 20) % 80}%`,
+              top: `${10 + (i * 25) % 80}%`,
             }}
             animate={{
-              x: [0, Math.random() * 200 - 100, 0],
-              y: [0, Math.random() * 200 - 100, 0],
+              x: [0, (i % 2 === 0 ? 100 : -100), 0],
+              y: [0, (i % 2 === 0 ? -100 : 100), 0],
             }}
             transition={{
-              duration: Math.random() * 10 + 15,
+              duration: 15 + (i % 10),
               repeat: Infinity,
               ease: "linear"
             }}

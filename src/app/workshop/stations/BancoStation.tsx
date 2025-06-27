@@ -5,7 +5,7 @@ import { Button } from '@/app/components/ui/button'
 
 export default function BancoStation() {
   return (
-    <section className="w-full h-full relative overflow-hidden bg-gradient-to-br from-stone-100 to-amber-50 flex items-center justify-center">
+    <section className="w-full min-h-screen relative overflow-hidden bg-gradient-to-br from-stone-100 to-amber-50 flex items-center justify-center py-8">
       <div className="absolute inset-0 opacity-5">
         <div 
           className="w-full h-full"

@@ -7,6 +7,7 @@ import { useState, useEffect } from "react"
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -124,19 +125,95 @@ export default function Navbar() {
             <Button
               variant="ghost"
               size="sm"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={`${
                 isScrolled ? 'text-stone-700' : 'text-stone-700'
               } hover:bg-white/10`}
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <line x1="3" y1="6" x2="21" y2="6" />
-                <line x1="3" y1="12" x2="21" y2="12" />
-                <line x1="3" y1="18" x2="21" y2="18" />
+                {isMobileMenuOpen ? (
+                  <>
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                  </>
+                ) : (
+                  <>
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <line x1="3" y1="12" x2="21" y2="12" />
+                    <line x1="3" y1="18" x2="21" y2="18" />
+                  </>
+                )}
               </svg>
             </Button>
           </div>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      <motion.div
+        className={`md:hidden fixed top-16 left-0 right-0 z-40 ${
+          isScrolled 
+            ? 'bg-white/95 backdrop-blur-md border-b border-stone-200/50' 
+            : 'bg-white/90 backdrop-blur-md'
+        }`}
+        initial={{ height: 0, opacity: 0 }}
+        animate={{ 
+          height: isMobileMenuOpen ? 'auto' : 0,
+          opacity: isMobileMenuOpen ? 1 : 0
+        }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+        style={{ overflow: 'hidden' }}
+      >
+        <div className="container mx-auto px-4 py-4">
+          <nav className="flex flex-col space-y-4">
+            {[
+              { name: 'Home', href: '/', description: 'Metamorfosis Material' },
+              { name: 'Museo', href: '/museo', description: 'Galería Interactiva' },
+              { name: 'Workshop', href: '/workshop', description: 'Taller Digital' },
+            ].map((item, index) => (
+              <motion.div
+                key={item.name}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ 
+                  opacity: isMobileMenuOpen ? 1 : 0,
+                  x: isMobileMenuOpen ? 0 : -20
+                }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
+              >
+                <Link 
+                  href={item.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="block py-2 px-3 hover:bg-amber-50 rounded-lg transition-colors duration-200"
+                >
+                  <span className="text-stone-800 font-medium block">
+                    {item.name}
+                  </span>
+                  <span className="text-stone-600 text-sm">
+                    {item.description}
+                  </span>
+                </Link>
+              </motion.div>
+            ))}
+            
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ 
+                opacity: isMobileMenuOpen ? 1 : 0,
+                x: isMobileMenuOpen ? 0 : -20
+              }}
+              transition={{ duration: 0.3, delay: 0.3 }}
+              className="pt-2"
+            >
+              <Button
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="w-full bg-amber-600 hover:bg-amber-700 text-white transition-all duration-300 rounded-full shadow-lg"
+              >
+                Contacto
+              </Button>
+            </motion.div>
+          </nav>
+        </div>
+      </motion.div>
     </motion.nav>
   )
 }

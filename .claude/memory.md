@@ -11,6 +11,7 @@
 - **Token Efficiency**: Maximizar valor por token sin comprometer calidad
 - **Workshop Vertical Navigation**: Scroll natural confirmado como UX superior
 - **Glassmorphism Pattern**: `bg-white/10 backdrop-blur-md` como estándar para tarjetas
+- **Brand Color System**: #263311 (verde bosque) como color principal, reemplaza naranja/ámbar
 
 ### Decisiones de Negocio CRÍTICAS
 - **Target Audience**: Clientes high-end de diseño interior
@@ -55,6 +56,31 @@
 - **Interactive Material Showcase**: Texturas y materiales en detalle
 - **Virtual Showroom**: Tour 3D del estudio (futuro)
 
+## Decisiones de Diseño y Branding
+
+### Sistema de Colores DEFINITIVO (Diciembre 2024)
+- **Color Principal**: #263311 (verde bosque profundo) - Refuerza identidad "Raíces"
+- **Color Secundario**: #1a2509 (verde más oscuro) - Para hover states y acentos
+- **Color de Acento**: #9acd32 (verde lima) - Para highlights especiales y call-to-actions
+- **Migración Completa**: Eliminados todos los colores naranja/ámbar (amber-400, amber-600, orange-700, etc.)
+- **Aplicación Sistemática**: 4 archivos actualizados con 45+ instancias de color cambiadas
+  - navbar-section.tsx: Logo, botones, hover states, mobile menu
+  - testimonials-section.tsx: Fondo, partículas, textos, tarjetas
+  - services-section.tsx: Iconos, fondos, partículas, textos
+  - cta-section.tsx: Fondos, partículas, botones, texto destacado
+
+### Justificación del Cambio de Color
+- **Coherencia de Marca**: Verde refleja mejor el concepto "Raíces" (naturaleza, crecimiento, tierra)
+- **Diferenciación**: Se aleja del naranja genérico usado en muchas marcas de muebles
+- **Sofisticación**: #263311 aporta elegancia y profesionalismo que busca la marca
+- **Versatilidad**: Funciona bien en fondos claros y oscuros manteniendo legibilidad
+
+### Implementación Técnica del Color
+- **Uso de Hex Values**: [#263311] en lugar de clases Tailwind para control preciso
+- **Variaciones Sistemáticas**: /80, /70, /40, /30, /20, /10 para diferentes opacidades
+- **Compatibilidad**: Mantiene todos los efectos visuales (gradientes, shadows, blur)
+- **Consistency**: Aplicado consistentemente en todos los estados (hover, focus, active)
+
 ## Context de Estado Actual
 
 ### Implementación Completada
@@ -84,6 +110,7 @@
 - ✅ **Navegación Lateral**: Burbujas de navegación reposicionadas verticalmente (derecha)
 - ✅ **Optimización de Layout**: Todas las estaciones ajustadas para `h-screen` sin overflow
 - ✅ **Professional UI Upgrade**: Eliminación de elementos infantiles, diseño sofisticado
+- ✅ **Brand Color Evolution**: Migración completa de colores naranja/ámbar a #263311 (verde bosque)
 
 ### Backlog Priorizado
 1. **Completar Home Page**: Todas las secciones funcionales

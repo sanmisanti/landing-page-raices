@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion} from 'framer-motion'
 import DynamicCursor from './DynamicCursor'
 
 // Workshop Station Components
@@ -102,7 +102,6 @@ export default function WorkshopLayout() {
   const { width, height, isClient } = useWindowDimensions()
 
   const currentStationData = WORKSHOP_STATIONS[currentStation]
-  const CurrentStationComponent = currentStationData.component
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-amber-50 to-stone-100">

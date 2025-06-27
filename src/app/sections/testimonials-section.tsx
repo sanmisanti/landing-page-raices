@@ -48,12 +48,12 @@ export default function TestimonialsSection() {
   );
 
   return (
-    <section id="proceso" className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-orange-100 via-amber-100 to-yellow-100 relative overflow-hidden">
+    <section id="proceso" className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-[#263311]/10 via-[#263311]/5 to-green-50 relative overflow-hidden">
       {/* Sawdust Particles */}
       {sawdust.map((particle) => (
         <motion.div
           key={particle.id}
-          className="absolute w-1 h-1 bg-orange-400/40 rounded-full"
+          className="absolute w-1 h-1 bg-[#263311]/40 rounded-full"
           style={{
             left: `${particle.left}%`,
             top: `${particle.top}%`,
@@ -82,7 +82,7 @@ export default function TestimonialsSection() {
                 stroke="currentColor"
                 strokeWidth="3"
                 fill="none"
-                className="text-orange-800"
+                className="text-[#263311]"
                 initial={{ pathLength: 0, opacity: 0 }}
                 whileInView={{ pathLength: 1, opacity: 1 }}
                 transition={{ duration: 1.5, delay: i * 0.2, ease: "easeInOut" }}
@@ -93,7 +93,7 @@ export default function TestimonialsSection() {
                 stroke="currentColor"
                 strokeWidth="2"
                 fill="none"
-                className="text-orange-700"
+                className="text-[#263311]/80"
                 initial={{ pathLength: 0, opacity: 0 }}
                 whileInView={{ pathLength: 1, opacity: 1 }}
                 transition={{ duration: 1.5, delay: i * 0.2 + 0.3, ease: "easeInOut" }}
@@ -112,10 +112,10 @@ export default function TestimonialsSection() {
           transition={{ duration: 1, ease: "easeOut" }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-orange-900">
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-[#263311]">
             El Arte de la Talla Selectiva
           </h2>
-          <p className="max-w-[900px] mx-auto text-orange-800/80 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed mt-4">
+          <p className="max-w-[900px] mx-auto text-[#263311]/80 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed mt-4">
             Como el artesano que selecciona cada corte con precisión, respetamos cada fibra de madera.
             Aquí comienza la verdadera transformación: de material noble a obra maestra.
           </p>
@@ -139,7 +139,7 @@ export default function TestimonialsSection() {
                 transition: { duration: 0.3 }
               }}
             >
-              <Card className="text-center border-orange-200 hover:border-orange-400 transition-all duration-300 bg-white/90 backdrop-blur-sm h-full">
+              <Card className="text-center border-[#263311]/20 hover:border-[#263311]/40 transition-all duration-300 bg-white/90 backdrop-blur-sm h-full">
                 <CardHeader>
                   <motion.div 
                     className="mx-auto text-4xl mb-4"
@@ -151,11 +151,11 @@ export default function TestimonialsSection() {
                   >
                     {story.tool}
                   </motion.div>
-                  <CardTitle className="text-lg text-orange-900">{story.name}</CardTitle>
-                  <p className="text-sm text-orange-700/70 font-medium">{story.role}</p>
+                  <CardTitle className="text-lg text-[#263311]">{story.name}</CardTitle>
+                  <p className="text-sm text-[#263311]/70 font-medium">{story.role}</p>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-orange-800/80 italic leading-relaxed">
+                  <p className="text-[#263311]/80 italic leading-relaxed">
                     &ldquo;{story.content}&rdquo;
                   </p>
                 </CardContent>
@@ -172,10 +172,10 @@ export default function TestimonialsSection() {
           transition={{ duration: 1, delay: 0.5 }}
           viewport={{ once: true }}
         >
-          <blockquote className="text-xl md:text-2xl italic text-orange-900/90 max-w-4xl mx-auto">
+          <blockquote className="text-xl md:text-2xl italic text-[#263311]/90 max-w-4xl mx-auto">
             &ldquo;No cortamos madera, liberamos la forma que ya existe dentro de ella.&rdquo;
           </blockquote>
-          <p className="text-orange-700 mt-4 font-medium">— Filosofía del Taller Raíces y Diseño</p>
+          <p className="text-[#263311] mt-4 font-medium">— Filosofía del Taller Raíces y Diseño</p>
         </motion.div>
       </div>
     </section>

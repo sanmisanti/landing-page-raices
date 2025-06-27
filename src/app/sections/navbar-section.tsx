@@ -36,7 +36,7 @@ export default function Navbar() {
             transition={{ duration: 0.2 }}
           >
             <Link href="/" className="flex items-center space-x-3">
-              <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-amber-600 to-orange-700 rounded-lg flex items-center justify-center shadow-lg">
+              <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-[#263311] to-[#1a2509] rounded-lg flex items-center justify-center shadow-lg">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-white">
                   <path d="M12 2L8 8h8l-4-6Z" fill="currentColor" opacity="0.8" />
                   <path d="M12 6L7 12h10l-5-6Z" fill="currentColor" opacity="0.6" />
@@ -51,7 +51,7 @@ export default function Navbar() {
                   Raíces
                 </span>
                 <span className={`text-sm leading-none ${
-                  isScrolled ? 'text-amber-600' : 'text-amber-700'
+                  isScrolled ? 'text-[#263311]' : 'text-[#263311]'
                 }`}>
                   y Diseño
                 </span>
@@ -80,20 +80,20 @@ export default function Navbar() {
                   >
                     <span className={`font-medium transition-colors duration-200 ${
                       isScrolled 
-                        ? 'text-stone-700 group-hover:text-amber-600' 
-                        : 'text-stone-800 group-hover:text-amber-700'
+                        ? 'text-stone-700 group-hover:text-[#263311]' 
+                        : 'text-stone-800 group-hover:text-[#263311]'
                     }`}>
                       {item.name}
                     </span>
                     <span className={`text-xs transition-colors duration-200 ${
                       isScrolled 
-                        ? 'text-stone-500 group-hover:text-amber-500' 
-                        : 'text-stone-600 group-hover:text-amber-600'
+                        ? 'text-stone-500 group-hover:text-[#263311]/70' 
+                        : 'text-stone-600 group-hover:text-[#263311]'
                     }`}>
                       {item.description}
                     </span>
                     <motion.div
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-[#263311] to-[#1a2509] scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
                       layoutId="navbar-underline"
                     />
                   </Link>
@@ -111,8 +111,8 @@ export default function Navbar() {
               <Button
                 className={`${
                   isScrolled
-                    ? 'bg-amber-600 hover:bg-amber-700 text-white'
-                    : 'bg-amber-600/90 hover:bg-amber-700 text-white border border-amber-500/50 hover:border-amber-600'
+                    ? 'bg-[#263311] hover:bg-[#1a2509] text-white'
+                    : 'bg-[#263311]/90 hover:bg-[#1a2509] text-white border border-[#263311]/50 hover:border-[#263311]'
                 } transition-all duration-300 rounded-full px-6 shadow-lg backdrop-blur-sm`}
               >
                 Contacto
@@ -183,7 +183,7 @@ export default function Navbar() {
                 <Link 
                   href={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block py-2 px-3 hover:bg-amber-50 rounded-lg transition-colors duration-200"
+                  className="block py-2 px-3 hover:bg-[#263311]/5 rounded-lg transition-colors duration-200"
                 >
                   <span className="text-stone-800 font-medium block">
                     {item.name}
@@ -206,7 +206,7 @@ export default function Navbar() {
             >
               <Button
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="w-full bg-amber-600 hover:bg-amber-700 text-white transition-all duration-300 rounded-full shadow-lg"
+                className="w-full bg-[#263311] hover:bg-[#1a2509] text-white transition-all duration-300 rounded-full shadow-lg"
               >
                 Contacto
               </Button>

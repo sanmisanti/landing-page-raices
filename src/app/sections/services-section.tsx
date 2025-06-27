@@ -12,10 +12,10 @@ import { useMemo } from "react";
 // Phase 3: Árbol Maduro - Iconos representando materiales nobles
 const OakIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <path d="M12 2c-1 0-2 1-2 2 0 2 2 4 2 4s2-2 2-4c0-1-1-2-2-2Z" className="fill-amber-600/20" />
+    <path d="M12 2c-1 0-2 1-2 2 0 2 2 4 2 4s2-2 2-4c0-1-1-2-2-2Z" className="fill-[#263311]/20" />
     <path d="M8 6c-1.5 1-2 3-1 4.5 1 1 3 .5 4.5-1" />
     <path d="M16 6c1.5 1 2 3 1 4.5-1 1-3 .5-4.5-1" />
-    <path d="M12 10v12" strokeWidth="3" className="stroke-amber-800" />
+    <path d="M12 10v12" strokeWidth="3" className="stroke-[#263311]" />
   </svg>
 );
 
@@ -24,15 +24,15 @@ const PineIcon = () => (
     <path d="M12 2L8 8h8l-4-6Z" className="fill-emerald-600/20" />
     <path d="M12 6L7 12h10l-5-6Z" className="fill-emerald-500/20" />
     <path d="M12 10L6 16h12l-6-6Z" className="fill-emerald-400/20" />
-    <path d="M12 16v6" strokeWidth="3" className="stroke-amber-700" />
+    <path d="M12 16v6" strokeWidth="3" className="stroke-[#263311]" />
   </svg>
 );
 
 const WalnutIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <circle cx="12" cy="8" r="3" className="fill-amber-800/20" />
-    <path d="M12 11c-2 2-4 4-4 6s2 4 4 4 4-2 4-4-2-4-4-6Z" className="fill-amber-900/20" />
-    <path d="M12 2v6" strokeWidth="2" className="stroke-amber-700" />
+    <circle cx="12" cy="8" r="3" className="fill-[#263311]/20" />
+    <path d="M12 11c-2 2-4 4-4 6s2 4 4 4 4-2 4-4-2-4-4-6Z" className="fill-[#263311]/30" />
+    <path d="M12 2v6" strokeWidth="2" className="stroke-[#263311]" />
   </svg>
 );
 
@@ -49,7 +49,7 @@ export default function ServicesSection() {
   );
 
   return (
-    <section id="materiales" className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 relative overflow-hidden">
+    <section id="materiales" className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-[#263311]/5 via-green-50 to-[#263311]/3 relative overflow-hidden">
       {/* Wood Grain Pattern */}
       <div className="absolute inset-0 opacity-5">
         <svg className="w-full h-full" viewBox="0 0 1000 1000">
@@ -60,7 +60,7 @@ export default function ServicesSection() {
               stroke="currentColor"
               strokeWidth="2"
               fill="none"
-              className="text-amber-800"
+              className="text-[#263311]"
               initial={{ pathLength: 0 }}
               whileInView={{ pathLength: 1 }}
               transition={{ duration: 2, delay: i * 0.3, ease: "easeInOut" }}
@@ -74,7 +74,7 @@ export default function ServicesSection() {
       {woodChips.map((chip) => (
         <motion.div
           key={chip.id}
-          className="absolute w-3 h-1 bg-amber-700/20 rounded-sm"
+          className="absolute w-3 h-1 bg-[#263311]/20 rounded-sm"
           style={{
             left: `${chip.left}%`,
             top: `${chip.top}%`,
@@ -101,10 +101,10 @@ export default function ServicesSection() {
           transition={{ duration: 1, ease: "easeOut" }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-amber-900">
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-[#263311]">
             La Selección de Materiales Nobles
           </h2>
-          <p className="max-w-[900px] mx-auto text-amber-800/80 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed mt-4">
+          <p className="max-w-[900px] mx-auto text-[#263311]/80 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed mt-4">
             Como un árbol maduro que ha alcanzado su plenitud, seleccionamos las maderas más nobles
             y los materiales de mayor calidad para dar vida a cada pieza única.
           </p>
@@ -146,19 +146,19 @@ export default function ServicesSection() {
                 transition: { duration: 0.3 }
               }}
             >
-              <Card className="text-center border-amber-200 hover:border-amber-400 transition-all duration-300 bg-white/80 backdrop-blur-sm">
+              <Card className="text-center border-[#263311]/20 hover:border-[#263311]/40 transition-all duration-300 bg-white/80 backdrop-blur-sm">
                 <CardHeader>
                   <motion.div 
-                    className="mx-auto bg-gradient-to-br from-amber-100 to-orange-100 rounded-full p-4 w-fit"
+                    className="mx-auto bg-gradient-to-br from-[#263311]/10 to-[#263311]/5 rounded-full p-4 w-fit"
                     whileHover={{ rotate: 5 }}
                     transition={{ duration: 0.3 }}
                   >
                     <material.icon />
                   </motion.div>
-                  <CardTitle className="mt-4 text-amber-900">{material.title}</CardTitle>
+                  <CardTitle className="mt-4 text-[#263311]">{material.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-amber-800/70">
+                  <p className="text-[#263311]/70">
                     {material.description}
                   </p>
                 </CardContent>

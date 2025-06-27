@@ -1,51 +1,122 @@
+'use client'
+
 import { Button } from "@/app/components/ui/button"
 import Image from "next/image"
+import { motion } from "framer-motion"
 
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
+      {/* Organic Growing Background */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="/portada1.heic"
-          alt="Rincón de salón moderno con sillón de madera y tapicería clara junto a una planta verde"
-          fill
-          className="object-cover"
-          priority
-        />
-        {/* Subtle dark overlay for text readability */}
-        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-br from-green-50 via-emerald-100 to-green-200" />
+        
+        {/* Floating Seeds/Spores */}
+        {Array.from({ length: 12 }).map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-2 h-2 bg-green-800/30 rounded-full"
+            initial={{ 
+              x: Math.random() * 1200,
+              y: Math.random() * 800,
+              scale: 0
+            }}
+            animate={{
+              x: Math.random() * 1200,
+              y: Math.random() * 800,
+              scale: [0, 1, 0.5, 1],
+            }}
+            transition={{
+              duration: Math.random() * 20 + 15,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: Math.random() * 5
+            }}
+          />
+        ))}
+        
+        {/* Growing Roots Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <svg className="w-full h-full" viewBox="0 0 1000 1000">
+            <motion.path
+              d="M500,900 Q400,800 300,700 Q200,600 100,500"
+              stroke="currentColor"
+              strokeWidth="2"
+              fill="none"
+              className="text-green-900"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 3, ease: "easeInOut" }}
+            />
+            <motion.path
+              d="M500,900 Q600,800 700,700 Q800,600 900,500"
+              stroke="currentColor"
+              strokeWidth="2"
+              fill="none"
+              className="text-green-900"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 3, delay: 0.5, ease: "easeInOut" }}
+            />
+          </svg>
+        </div>
       </div>
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-        {/* Main Title */}
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif text-white mb-6 leading-tight tracking-wide">
-          La madera como raíz,
+        {/* Main Title - Phase 1: Semilla */}
+        <motion.h1 
+          className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif text-green-900 mb-6 leading-tight tracking-wide"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+        >
+          De la semilla
           <br />
-          el diseño como lenguaje.
-        </h1>
+          <span className="text-emerald-700">a la obra maestra.</span>
+        </motion.h1>
 
         {/* Subtitle */}
-        <p className="text-lg sm:text-xl lg:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed font-light">
-          Transformamos espacios con muebles de autor y un diseño que cuenta tu historia.
-        </p>
+        <motion.p 
+          className="text-lg sm:text-xl lg:text-2xl text-green-800/80 mb-8 max-w-3xl mx-auto leading-relaxed font-light"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
+        >
+          Cada proyecto nace de una idea. Acompáñanos en el proceso de transformación 
+          desde el concepto hasta el mueble que transformará tu espacio.
+        </motion.p>
 
         {/* Call to Action Button */}
-        <Button
-          size="lg"
-          className="bg-white hover:bg-stone-50 text-stone-800 font-medium px-8 py-4 text-base sm:text-lg rounded-md shadow-lg hover:shadow-xl transition-all duration-300 border-0"
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
         >
-          Explora nuestros proyectos
-        </Button>
+          <Button
+            size="lg"
+            className="bg-emerald-600 hover:bg-emerald-700 text-white font-medium px-8 py-4 text-base sm:text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border-0"
+          >
+            Inicia tu transformación
+          </Button>
+        </motion.div>
       </div>
 
-      {/* Scroll indicator (optional) */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
-        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white/70 rounded-full mt-2 animate-bounce" />
+      {/* Animated Scroll Indicator */}
+      <motion.div 
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 1 }}
+      >
+        <div className="w-6 h-10 border-2 border-green-700/50 rounded-full flex justify-center">
+          <motion.div 
+            className="w-1 h-3 bg-emerald-600 rounded-full mt-2"
+            animate={{ y: [0, 12, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          />
         </div>
-      </div>
+      </motion.div>
     </section>
   )
 }

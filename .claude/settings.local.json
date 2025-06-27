@@ -9,7 +9,12 @@
       "Bash(npm run build:*)",
       "Bash(pkill:*)",
       "Bash(rm:*)",
-      "Bash(npm run lint)"
+      "Bash(npm run lint)",
+      "Bash(find:*)",
+      "Bash(npm install:*)",
+      "Bash(mv:*)",
+      "Bash(ls:*)",
+      "Bash(cp:*)"
     ],
     "deny": []
   }

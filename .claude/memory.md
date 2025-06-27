@@ -9,6 +9,8 @@
 - **TypeScript Strict**: Configuración establecida, mantener estricta
 - **"Modern Warmth" Aesthetic**: Principio de diseño no negociable
 - **Token Efficiency**: Maximizar valor por token sin comprometer calidad
+- **Workshop Vertical Navigation**: Scroll natural confirmado como UX superior
+- **Glassmorphism Pattern**: `bg-white/10 backdrop-blur-md` como estándar para tarjetas
 
 ### Decisiones de Negocio CRÍTICAS
 - **Target Audience**: Clientes high-end de diseño interior
@@ -68,10 +70,20 @@
 - ✅ **Token Efficiency**: Sistema de optimización de tokens implementado
 - ✅ **Cache Management**: Protocolo para limpiar .next cuando hay problemas de styling
 
-### En Desarrollo Activo
-- 🔄 **Additional Sections**: Testimonials, CTA, Footer pendientes  
-- 🔄 **Content Integration**: Imágenes, texto, datos reales del negocio
-- 🔄 **Page Composition**: Integrar todas las secciones en página principal
+### COMPLETADO - Junio 2024
+- ✅ **Tres Experiencias Únicas**: Metamorfosis, Museo, Workshop implementadas
+- ✅ **Navegación Unificada**: Navbar sofisticado con animaciones
+- ✅ **Estructura de Rutas**: `/` `/museo` `/workshop` funcionales
+- ✅ **Metamorfosis Material Completa**: 5 fases implementadas con narrativa evolutiva
+- ✅ **Sistema de Scroll Personalizado**: Gradiente ámbar coherente con marca
+
+### COMPLETADO - Diciembre 2024: Workshop Experience Refinement
+- ✅ **Navegación Vertical Workshop**: Transformado de horizontal a scroll natural
+- ✅ **Video Background Integration**: Implementado `/background.mp4` en EntradaStation
+- ✅ **Glassmorphism Design System**: Efecto vidrio consistente en todas las tarjetas
+- ✅ **Navegación Lateral**: Burbujas de navegación reposicionadas verticalmente (derecha)
+- ✅ **Optimización de Layout**: Todas las estaciones ajustadas para `h-screen` sin overflow
+- ✅ **Professional UI Upgrade**: Eliminación de elementos infantiles, diseño sofisticado
 
 ### Backlog Priorizado
 1. **Completar Home Page**: Todas las secciones funcionales

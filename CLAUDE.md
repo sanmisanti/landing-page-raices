@@ -10,6 +10,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **`.claude/memory.md`**: Critical decisions, architectural choices, and what to preserve in memory
 - **`.claude/startup.md`**: Session startup protocol - ALWAYS start with `npm run dev &`
 - **`.claude/efficiency.md`**: Token optimization strategies maintaining maximum quality
+- **`.claude/design-exploration.md`**: Three unique experience concepts and implementation status
+- **`.claude/session-summary-jun2024.md`**: Complete session summary with all achievements and decisions
 
 Key principles: Maximum professionalism, extreme efficiency, avant-garde creativity, constant application monitoring.
 
@@ -26,7 +28,13 @@ This is a Next.js 15 website for "Raíces y Diseño" - a high-end interior desig
 - **Key Asset**: Active Instagram account showcasing their work
 
 ### Design Philosophy
-**"Modern Warmth"** - Balancing cozy, artisanal feel (wood textures, warm colors) with clean, modern, high-end layout (sharp typography, generous whitespace).
+**"Modern Warmth" Evolution** - El concepto evolucionó hacia tres expresiones únicas:
+
+1. **Orgánico**: Metamorfosis Material con paletas naturales evolutivas (verde → ámbar → dorado)
+2. **Elegante**: Museo con iluminación sofisticada y efectos premium (slate oscuro + spotlights ámbar)
+3. **Artesanal**: Workshop con texturas y ambiente de taller (maderas + herramientas)
+
+Cada experiencia mantiene la calidez artesanal pero con personalidad visual distintiva.
 
 ## Development Commands
 
@@ -50,23 +58,35 @@ src/app/
 
 ### Site Structure & Strategy
 
-**Multi-Page Architecture**: Professional, scalable approach with dedicated pages for better SEO:
+**Multi-Experience Architecture**: Three unique digital experiences implemented:
 
-**Home Page Sections** (current implementation):
-- `Navbar`: Clean navigation
-- `Hero`: High-impact visual and headline  
-- `FeaturedProjects`: Curated selection of top work
-- `Services`: Summary of offerings
-- `Testimonials`: Social proof
-- `CtaSection`: Clear call to action
-- `Footer`: Contact info and social links
+#### Current Implementation - Three Routes:
 
-**Future Full Pages**:
-- `Portfolio`: Detailed project case studies (before/after, stories)
-- `Services`: In-depth explanation of each service
-- `Courses`: Calendar, descriptions, and registration
-- `About Us`: The story of the founder
+**`/` - Metamorfosis Material (Home):**
+- `Navbar`: Sophisticated animated navigation
+- `Hero`: Fase 1 - Semilla (verde claro, partículas, raíces)
+- `FeaturedProjects`: Fase 2 - Árbol Joven (ideas que toman forma)
+- `Services`: Fase 3 - Árbol Maduro (materiales nobles)
+- `Testimonials`: Fase 4 - Tala Selectiva (proceso artesanal)
+- `CtaSection`: Fase 5 - Pieza Final (obra maestra)
+- `Footer`: Simple y elegante
+
+**`/museo` - Museo Interactivo:**
+- Hall de entrada con spotlight effects
+- Cursor que sigue mouse con efectos de iluminación
+- Preview de salas temáticas
+- Ambiente de galería profesional
+
+**`/workshop` - Workshop Digital:**
+- Navegación horizontal entre estaciones
+- Cursor dinámico por sección
+- Experiencia inmersiva de taller
+- Partículas ambientales
+
+#### Future Expansion Pages:
+- `Portfolio`: Detailed project case studies
 - `Contact`: Form, WhatsApp, map
+- `About`: Story of the founder
 
 ### Key Design Decisions
 
@@ -88,7 +108,9 @@ src/app/
 - **Tailwind CSS** with custom color system using CSS variables
 - **CSS-in-JS approach** with cn() utility for conditional classes
 - **Responsive design** with mobile-first approach
-- **Custom animations** using tailwindcss-animate plugin
+- **Framer Motion** for premium animations and interactions
+- **Custom CSS**: Scrollbar personalizada con gradiente ámbar, `bg-gradient-radial` para spotlight effects
+- **Glassmorphism**: Backdrop blur effects en navbar y cards
 
 ### Font and Typography
 
@@ -114,12 +136,34 @@ Site is configured for Spanish language (lang="es" in root layout).
 - Path mapping configured
 - Next.js plugin integrated
 
-## Future "Wow" Factor Features
+## Implemented "Wow" Factor Features ✅
 
-Planned enhancements to create an impressive user experience:
+**Three unique digital experiences fully implemented:**
+
+### Metamorfosis Material (/)
+- Narrativa evolutiva desde semilla hasta obra maestra
+- 5 fases con paletas de colores orgánicas
+- Animaciones temáticas por sección (partículas, raíces, virutas, etc.)
+- Transiciones fluidas entre conceptos
+
+### Museo Interactivo (/museo)
+- Spotlight cursor que sigue el mouse
+- Efectos de iluminación museística
+- Hall de entrada con preview de salas
+- Ambiente de galería profesional
+
+### Workshop Digital (/workshop)
+- Navegación horizontal inmersiva
+- Cursor dinámico que cambia por estación
+- Partículas ambientales de taller
+- Experiencia artesanal única
+
+## Future Enhancement Ideas
 - Dynamic, embedded Instagram feed
 - Interactive 3D furniture customizer
 - "Behind the Design" blog section
+- Content management system
+- Advanced analytics integration
 
 ## Development Notes
 

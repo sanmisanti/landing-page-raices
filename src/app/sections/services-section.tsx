@@ -7,6 +7,7 @@ import {
   CardTitle,
 } from "@/app/components/ui/card";
 import { motion } from "framer-motion";
+import { useMemo } from "react";
 
 // Phase 3: Árbol Maduro - Iconos representando materiales nobles
 const OakIcon = () => (
@@ -36,6 +37,17 @@ const WalnutIcon = () => (
 );
 
 export default function ServicesSection() {
+  // Pre-generate stable values to avoid hydration mismatch
+  const woodChips = useMemo(() => 
+    Array.from({ length: 12 }, (_, i) => ({
+      id: i,
+      left: 10 + (i % 5) * 20,
+      top: 15 + (i % 4) * 25,
+      duration: 6 + (i % 3),
+      delay: (i * 0.25) % 3
+    })), []
+  );
+
   return (
     <section id="materiales" className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 relative overflow-hidden">
       {/* Wood Grain Pattern */}
@@ -59,13 +71,13 @@ export default function ServicesSection() {
       </div>
 
       {/* Floating Wood Chips */}
-      {Array.from({ length: 12 }).map((_, i) => (
+      {woodChips.map((chip) => (
         <motion.div
-          key={i}
+          key={chip.id}
           className="absolute w-3 h-1 bg-amber-700/20 rounded-sm"
           style={{
-            left: `${10 + (i % 5) * 20}%`,
-            top: `${15 + (i % 4) * 25}%`,
+            left: `${chip.left}%`,
+            top: `${chip.top}%`,
           }}
           animate={{
             y: [0, -30, 0],
@@ -73,10 +85,10 @@ export default function ServicesSection() {
             x: [0, 20, 0],
           }}
           transition={{
-            duration: 6 + Math.random() * 3,
+            duration: chip.duration,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: Math.random() * 3
+            delay: chip.delay
           }}
         />
       ))}

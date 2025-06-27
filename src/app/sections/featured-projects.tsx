@@ -4,6 +4,7 @@ import ProjectCard from "@/app/components/ui/project-card";
 import { Button } from "@/app/components/ui/button";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useMemo } from "react";
 
 // Phase 2: Árbol Joven - Bocetos y conceptos iniciales
 const conceptualProjects = [
@@ -28,6 +29,17 @@ const conceptualProjects = [
 ];
 
 export default function FeaturedProjects() {
+  // Pre-generate stable values to avoid hydration mismatch
+  const leaves = useMemo(() => 
+    Array.from({ length: 8 }, (_, i) => ({
+      id: i,
+      left: 20 + (i % 4) * 20,
+      top: 10 + (i % 3) * 30,
+      duration: 4 + (i % 2),
+      delay: (i * 0.25) % 2
+    })), []
+  );
+
   return (
     <section id="conceptos" className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-emerald-50 via-green-100 to-lime-50 relative overflow-hidden">
       {/* Growing Branch Pattern */}
@@ -70,13 +82,13 @@ export default function FeaturedProjects() {
       </div>
 
       {/* Floating Leaves */}
-      {Array.from({ length: 8 }).map((_, i) => (
+      {leaves.map((leaf) => (
         <motion.div
-          key={i}
+          key={leaf.id}
           className="absolute w-4 h-4 bg-green-600/20 rounded-full"
           style={{
-            left: `${20 + (i % 4) * 20}%`,
-            top: `${10 + (i % 3) * 30}%`,
+            left: `${leaf.left}%`,
+            top: `${leaf.top}%`,
           }}
           animate={{
             y: [0, -20, 0],
@@ -84,10 +96,10 @@ export default function FeaturedProjects() {
             scale: [1, 1.2, 1],
           }}
           transition={{
-            duration: 4 + Math.random() * 2,
+            duration: leaf.duration,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: Math.random() * 2
+            delay: leaf.delay
           }}
         />
       ))}

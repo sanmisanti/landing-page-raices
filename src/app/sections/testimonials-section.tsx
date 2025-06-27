@@ -7,6 +7,7 @@ import {
   CardTitle,
 } from "@/app/components/ui/card";
 import { motion } from "framer-motion";
+import { useMemo } from "react";
 
 // Phase 4: Tala Selectiva - Proceso artesanal y testimonios del craft
 const craftStories = [
@@ -34,27 +35,39 @@ const craftStories = [
 ];
 
 export default function TestimonialsSection() {
+  // Pre-generate stable values to avoid hydration mismatch
+  const sawdust = useMemo(() => 
+    Array.from({ length: 20 }, (_, i) => ({
+      id: i,
+      left: 5 + (i * 4.75) % 90,
+      top: 10 + (i * 4.5) % 80,
+      xMovement: (i % 5 - 2) * 12.5,
+      duration: 8 + (i % 4),
+      delay: (i * 0.25) % 5
+    })), []
+  );
+
   return (
     <section id="proceso" className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-orange-100 via-amber-100 to-yellow-100 relative overflow-hidden">
       {/* Sawdust Particles */}
-      {Array.from({ length: 20 }).map((_, i) => (
+      {sawdust.map((particle) => (
         <motion.div
-          key={i}
+          key={particle.id}
           className="absolute w-1 h-1 bg-orange-400/40 rounded-full"
           style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
+            left: `${particle.left}%`,
+            top: `${particle.top}%`,
           }}
           animate={{
             y: [0, -100, 0],
-            x: [0, Math.random() * 50 - 25, 0],
+            x: [0, particle.xMovement, 0],
             opacity: [0, 1, 0],
           }}
           transition={{
-            duration: 8 + Math.random() * 4,
+            duration: particle.duration,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: Math.random() * 5
+            delay: particle.delay
           }}
         />
       ))}

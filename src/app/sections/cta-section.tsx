@@ -2,8 +2,19 @@
 
 import { Button } from "@/app/components/ui/button";
 import { motion } from "framer-motion";
+import { useMemo } from "react";
 
 export default function CtaSection() {
+  // Pre-generate stable random values to avoid hydration mismatch
+  const particles = useMemo(() => 
+    Array.from({ length: 15 }, (_, i) => ({
+      id: i,
+      left: 10 + (i * 6) % 80, // Deterministic positioning
+      top: 15 + (i * 7) % 70,
+      duration: 6 + (i % 4),
+      delay: (i * 0.3) % 3
+    })), []
+  );
   return (
     <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-stone-800 via-amber-900 to-stone-900 relative overflow-hidden">
       {/* Elegant wood grain texture */}
@@ -27,13 +38,13 @@ export default function CtaSection() {
       </div>
 
       {/* Floating golden particles */}
-      {Array.from({ length: 15 }).map((_, i) => (
+      {particles.map((particle) => (
         <motion.div
-          key={i}
+          key={particle.id}
           className="absolute w-2 h-2 bg-amber-400/30 rounded-full"
           style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
+            left: `${particle.left}%`,
+            top: `${particle.top}%`,
           }}
           animate={{
             y: [0, -50, 0],
@@ -41,10 +52,10 @@ export default function CtaSection() {
             scale: [1, 1.5, 1],
           }}
           transition={{
-            duration: 6 + Math.random() * 4,
+            duration: particle.duration,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: Math.random() * 3
+            delay: particle.delay
           }}
         />
       ))}

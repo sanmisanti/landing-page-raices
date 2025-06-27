@@ -2,8 +2,19 @@
 
 import { Button } from "@/app/components/ui/button"
 import { motion } from "framer-motion"
+import { useMemo } from "react"
 
 export default function HeroSection() {
+  // Pre-generate stable positions to avoid hydration mismatch
+  const seeds = useMemo(() => 
+    Array.from({ length: 12 }, (_, i) => ({
+      id: i,
+      x: 100 + (i * 73) % 1000,
+      y: 50 + (i * 67) % 700,
+      duration: 15 + (i % 8) * 2,
+      delay: (i * 0.4) % 5
+    })), []
+  );
   return (
     <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
       {/* Organic Growing Background */}
@@ -11,25 +22,25 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-br from-green-50 via-emerald-100 to-green-200" />
         
         {/* Floating Seeds/Spores */}
-        {Array.from({ length: 12 }).map((_, i) => (
+        {seeds.map((seed) => (
           <motion.div
-            key={i}
+            key={seed.id}
             className="absolute w-2 h-2 bg-green-800/30 rounded-full"
             initial={{ 
-              x: Math.random() * 1200,
-              y: Math.random() * 800,
+              x: seed.x,
+              y: seed.y,
               scale: 0
             }}
             animate={{
-              x: Math.random() * 1200,
-              y: Math.random() * 800,
+              x: seed.x + 100,
+              y: seed.y - 50,
               scale: [0, 1, 0.5, 1],
             }}
             transition={{
-              duration: Math.random() * 20 + 15,
+              duration: seed.duration,
               repeat: Infinity,
               ease: "easeInOut",
-              delay: Math.random() * 5
+              delay: seed.delay
             }}
           />
         ))}

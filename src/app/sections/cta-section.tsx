@@ -96,7 +96,7 @@ export default function CtaSection() {
             viewport={{ once: true }}
           >
             <p className="text-amber-200/80 italic text-sm">
-              "Cada mueble cuenta una historia. La tuya comienza aquí."
+              &ldquo;Cada mueble cuenta una historia. La tuya comienza aquí.&rdquo;
             </p>
           </motion.div>
         </motion.div>

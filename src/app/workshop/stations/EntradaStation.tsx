@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import { Button } from '@/app/components/ui/button'
+import Link from 'next/link'
 
 // Hook personalizado para manejar dimensiones de ventana de forma segura
 function useWindowDimensions() {
@@ -45,6 +46,35 @@ export default function EntradaStation() {
       
       {/* Dark overlay for better text readability */}
       <div className="absolute inset-0 bg-black/30" />
+
+      {/* Back to Home Navigation */}
+      <motion.div 
+        className="absolute top-6 left-6 z-20"
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 0.5 }}
+      >
+        <Link href="/">
+          <motion.button
+            className="bg-amber-600 hover:bg-amber-700 text-white rounded-full p-4 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-amber-500 hover:border-amber-400"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            title="Volver al inicio"
+          >
+            <svg 
+              width="24" 
+              height="24" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="3"
+              className="text-white"
+            >
+              <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+          </motion.button>
+        </Link>
+      </motion.div>
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 grid lg:grid-cols-2 gap-8 items-center">
         {/* Left Side - Workshop Introduction */}
@@ -120,12 +150,12 @@ export default function EntradaStation() {
               Comenzar el Recorrido
             </Button>
             <Button
-              variant="outline"
-              size="lg"
-              className="border-amber-800 text-amber-800 hover:bg-amber-50 px-8 py-4 rounded-lg"
-            >
-              Ver Portfolio
-            </Button>
+                variant="outline"
+                size="lg"
+                className="border-amber-800 text-amber-800 hover:bg-amber-50 px-8 py-4 rounded-lg"
+              >
+                Ver Porfolio
+              </Button>
           </motion.div>
         </motion.div>
 

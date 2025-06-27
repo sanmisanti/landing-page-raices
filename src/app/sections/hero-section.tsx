@@ -1,7 +1,6 @@
 'use client'
 
 import { Button } from "@/app/components/ui/button"
-import Image from "next/image"
 import { motion } from "framer-motion"
 
 export default function HeroSection() {

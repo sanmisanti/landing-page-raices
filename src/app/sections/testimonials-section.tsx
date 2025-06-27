@@ -143,7 +143,7 @@ export default function TestimonialsSection() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-orange-800/80 italic leading-relaxed">
-                    "{story.content}"
+                    &ldquo;{story.content}&rdquo;
                   </p>
                 </CardContent>
               </Card>
@@ -160,7 +160,7 @@ export default function TestimonialsSection() {
           viewport={{ once: true }}
         >
           <blockquote className="text-xl md:text-2xl italic text-orange-900/90 max-w-4xl mx-auto">
-            "No cortamos madera, liberamos la forma que ya existe dentro de ella."
+            &ldquo;No cortamos madera, liberamos la forma que ya existe dentro de ella.&rdquo;
           </blockquote>
           <p className="text-orange-700 mt-4 font-medium">— Filosofía del Taller Raíces y Diseño</p>
         </motion.div>

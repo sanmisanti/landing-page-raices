@@ -118,7 +118,7 @@ export default function ServicesSection() {
               description: "La aristocracia de las maderas. Su veteado único y tonalidades profundas aportan elegancia y carácter a cada pieza exclusiva.",
               delay: 0.4
             }
-          ].map((material, index) => (
+          ].map((material) => (
             <motion.div
               key={material.title}
               initial={{ opacity: 0, y: 50, scale: 0.9 }}

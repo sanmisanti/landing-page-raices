@@ -186,7 +186,7 @@ function MuseumHall() {
             transition={{ duration: 1, delay: 1.8 }}
           >
             <p className="text-slate-400 italic">
-              "En este museo, cada pieza susurra los secretos de su creación al visitante atento."
+              &ldquo;En este museo, cada pieza susurra los secretos de su creación al visitante atento.&rdquo;
             </p>
             <p className="text-amber-300 mt-2 text-sm">— Curador Digital</p>
           </motion.div>
